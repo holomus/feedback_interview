@@ -1,0 +1,37 @@
+\documentclass{article}
+ 
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Теорема}
+
+\title{Теоремы Эйлера и Ферма}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Теорема Эйлера}
+
+\begin{theorem}[Т. Эйлера]
+Если два целых положительных числа $\textbf{n}$ и $\textbf{a}$ взаимно просты, то верно следующее утверждение\\
+\null\qquad\qquad\qquad $a^{\varphi(n)} \equiv 1 \pmod{n}$, \qquad где $\varphi(n)$ — функция Эйлера
+\end{theorem}
+ 
+\begin{proof}
+Пусть $x_1, x_2, \ldots, x_{\varphi(n)}$ — приведенная система вычетов по модулю $n$. \\
+Тогда $ax_1, ax_2, \ldots, ax_{\varphi(n)}$ — тоже приведенная система вычетов по тому же модулю $n$.
+Тогда получается, что верно сравнение 
+\[ x_1 \cdot x_2 \cdot \ldots \cdot x_{\varphi(n)} \equiv ax_1 \cdot ax_2 \cdot \ldots \cdot ax_{\varphi(n)} \pmod{n} \]
+Очевидно, что $a$ перемножилось $\varphi(n)$ раз, поэтому имеем:
+\[ x_1 \cdot x_2 \cdot \ldots \cdot x_{\varphi(n)} \equiv a^{\varphi(n)} \cdot  x_1 \cdot x_2 \cdot \ldots \cdot x_{\varphi(n)} \pmod{n} \]
+Заметим, $x_i$ взаимно просты с $n$ {так как $x_i$ входит в приведенную систему вычетов по модулю $n$} и воспользуемся свойством сравнения по модулю. Получаем:
+\[1  \equiv  a^{\varphi(n)} \pmod{n} \]
+Что нам и требовалось доказать.
+\end{proof}
+
+\end{document}

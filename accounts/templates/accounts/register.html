@@ -1,0 +1,16 @@
+{% extends "accounts/not-logged.html" %}
+
+{% block title %}Create an Account{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <br>
+    <br>
+    <div class="d-flex justify-content-center align-items-center mt-5">
+        <form method="POST" class="w-25">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Register</button>
+        </form>
+    </div>
+{% endblock %}

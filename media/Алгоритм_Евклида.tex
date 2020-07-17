@@ -1,0 +1,125 @@
+\documentclass[a4paper]{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage{cmap}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a-1b]{pdfx}
+\usepackage[warn]{mathtext}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{amssymb,amsmath}
+\title{Number theory}
+\author{M-18 }
+\date{June 2020}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\hyphenation{словобезпереносов}
+\begin{document}
+
+\maketitle
+
+\section{Алгоритм Евклида}
+\textbf{Определение 1.1}
+(Целочисленное деление с остатком).
+
+Пусть \textit{a} \in  \mathbb{Z},  b \in  \mathbb{N}  \text{. Тогда целочисленное деление с остатком вида вычисляется по формуле}
+
+\begin{center}
+  \textit{a=bq+r},
+\end{center}
+
+где \textit{q} \in \mathbb{Z} - \text{частное}, r \in \mathbb{N}\cup\lbrace0\rbrace, 0\le r<b - \text{остаток}
+
+\noindent\textbf{Утверждение 1.1} Всякое целое \textit{a} представляется единственным \mbox{образом} через положительное целое число \textit{b} в форме
+
+\[
+\textit{a=bq+r} , 0 \le r<b.
+\]
+\textit{Доказательство.} Действительно, одно представление числа а в такой форме получим, взяв \textit{bq} равным наибольшему кратному \textit{b} числу не превосходящему \textit{a}.
+
+\[
+q = \lbrack\frac{a}{b}\rbrack.
+\]
+
+\textit{q}- \text{целая часть снизу, т.е. нибольшее число не превосходящее данное. Откуда}
+
+\[
+\textit{r=a--bq}
+\]
+
+Допустим, что разложений два 
+
+\[
+a=bq_{1}+r_{1}, 0 \le r_{1} <b
+\]
+
+\[
+a=bq_{2}+r_{2}, 0 \le r_{2} <b
+\]
+
+получим
+
+\[
+0=b(q_{1}-q_{2})+r_{1}-r_{2}
+\]
+
+отсуда следует, что r_{1}-r_{2} \text{ кратно } \textit{b}.\text{ Но ввиду того, что } |r_{1}-r_{2}|< \textit{b},\\ \text{последнеее возможно лишь при } r_{1}-r_{2}=0 => r_{1}=r_{2}.\\\text{Откуда вытекает также } q_{1}=q_{2}.\\ \text{Соответственно, любое целое число можно \mbox{разделить} на натуральное.}
+
+\noindent\textbf{Определение 1.2}
+(Алгоритм Евклида. Нахождение НОД)
+
+Пусть a,b \in  \mathbb{Z}. \text{Тогда по Определению 1.1 находим ряд равенств:}
+
+\[
+\left\{
+\begin{aligned}
+a=bq_{1}+r_{2}, 0 \le r_{2} <b \\
+b=bq_{2}+r_{3}, 0 \le r_{1} <b \\
+. \\
+. \\
+. \\
+r_{n-2}=r_{n-1}q_{n-1}+r_{n}, r_{n-1}<r_{n}\\
+r_{n-1}=r_{n}q_{n}+r_{n+1}\\                           
+\end{aligned}
+\right.
+\]
+
+\begin{flushright}
+  (1)
+\end{flushright}
+
+Алгоритм завершается при r_{n+1}
+
+\noindent\textbf{Утвержделение 1.2} В алгоритме Евклида r_{n}=\text{НОД(a,b). Далее введем}\\ \text{ обозначение НОД(a,b) через (a,b)}
+
+\textit{Доказательство.} 1. Докажем, что r_{n} - \text{делитель числа а. Рассмотрим получиашийся}\\ \text{ ряд (1) снизу вверх:}
+
+\[
+r_{n}|r_{n-1}, r_{n-1}|r_{n-2} => r_{n}|r_{n-1} ... =>  r_{n}|a, r_{n}|b
+\]
+
+2. Докажем, что r_{n} - \text{наибольший общий делитель. Рассмотрим ряд (1) сверху вниз:}
+
+Пусть делитель d>r_{n}.\text{Тогда}
+
+\[
+d|r_{2}, d|r_{3}, ... , d|r_{n}
+\]
+
+Противоречие!
+
+\noindent\textbf{Утвержделение 1.3} НОД делится на любой другой общий делитель. Т.е.
+\[
+\forall d:\lbrace d|a\wedge d|b\rbrace => d|(a,b)
+\]
+
+\textit{Доказательство.} По алгоритму Евклида:
+\[
+d|a, d|b => d|r_{n},
+\]
+
+где, r_{n} -\text{НОД. Что и требовалось доказать}.
+\end{document}
